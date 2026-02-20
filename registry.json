@@ -6,6 +6,13 @@
             "servers": {
                 "ai.exa/exa": "latest"
             }
+        },
+        {
+            "name": "private",
+            "type": "private",
+            "servers_relative_path": [
+                "mcps/sonarqube/server.json"
+            ]
         }
     ]
 }

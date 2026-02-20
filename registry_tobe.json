@@ -1,11 +1,5 @@
 {
     "registries": [
-        {
-            "name": "private",
-            "type": "private",
-            "servers_relative_path": [
-                "mcps/sonarqube/server.json"
-            ]
-        }
+
     ]
 }

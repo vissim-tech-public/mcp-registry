@@ -1,6 +1,6 @@
 {
     "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
-    "name": "sonarqube",
+    "name": "sonar/sonarqube",
     "description": "Local SonarQube MCP Server - Container-based instance",
     "version": "1.0.0",
     "command": "podman",
