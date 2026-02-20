@@ -1,0 +1,84 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/mcp-reg/mcp-registry-template/schemas/registry.schema.json",
+    "title": "MCP Registry Configuration",
+    "description": "Configuration for MCP registry template - defines which servers to include from public registries and private sources",
+    "type": "object",
+    "required": ["registries"],
+    "properties": {
+        "registries": {
+            "type": "array",
+            "description": "List of registry sources",
+            "items": {
+                "oneOf": [
+                    { "$ref": "#/$defs/publicRegistry" },
+                    { "$ref": "#/$defs/privateRegistry" }
+                ]
+            }
+        }
+    },
+    "$defs": {
+        "publicRegistry": {
+            "type": "object",
+            "description": "A public MCP registry to fetch servers from",
+            "required": ["name", "url", "servers"],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable name for this registry"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Base URL of the registry API"
+                },
+                "servers": {
+                    "oneOf": [
+                        {
+                            "type": "string",
+                            "const": "*",
+                            "description": "Include all servers from this registry"
+                        },
+                        {
+                            "type": "object",
+                            "description": "Map of server names or author patterns (e.g., 'microsoft/*') to versions",
+                            "additionalProperties": {
+                                "type": "string",
+                                "description": "Version string or 'latest'"
+                            }
+                        }
+                    ]
+                },
+                "exclude": {
+                    "type": "array",
+                    "description": "Server names to exclude (only used with wildcard)",
+                    "items": { "type": "string" }
+                }
+            },
+            "additionalProperties": false
+        },
+        "privateRegistry": {
+            "type": "object",
+            "description": "Local private server definitions",
+            "required": ["name", "type", "servers_relative_path"],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable name for this registry"
+                },
+                "type": {
+                    "type": "string",
+                    "const": "private",
+                    "description": "Must be 'private' for local servers"
+                },
+                "servers_relative_path": {
+                    "type": "array",
+                    "description": "Relative paths to server.json files",
+                    "items": { "type": "string" },
+                    "minItems": 1
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

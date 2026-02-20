@@ -1,0 +1,20 @@
+{
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+    "name": "example/hello-world",
+    "description": "Example MCP server for template demonstration",
+    "repository": {
+        "url": "https://github.com/your-org/hello-world-mcp",
+        "source": "github"
+    },
+    "version": "0.1.0",
+    "packages": [
+        {
+            "registryType": "npm",
+            "identifier": "@your-org/hello-world-mcp",
+            "version": "0.1.0",
+            "transport": {
+                "type": "stdio"
+            }
+        }
+    ]
+}

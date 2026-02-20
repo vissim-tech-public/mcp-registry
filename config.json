@@ -1,0 +1,4 @@
+{
+    "output": "dist/registry.json",
+    "fetchTimeout": 30
+}

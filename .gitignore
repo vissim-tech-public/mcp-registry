@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+.eggs/
+*.egg-info/
+*.egg
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Build
+build/
+*.whl
+
+# Keep dist/registry.json (compiled output)
+!dist/
+dist/*
+!dist/.gitkeep
+
+# rpi
+thoughts
+.claude
+AI_CODING.md
